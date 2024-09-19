@@ -1,22 +1,34 @@
+/*
+  This is your site JavaScript code - you can add interactivity!
+*/
 
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/targets.mind?v=1726764199240" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-        <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" />
-        <a-asset-item id="avatarModel" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/Dark_Magician.stl?v=1726765717666"></a-asset-item>
-      </a-assets>
+// Print a message in the browser's dev tools console each time the page loads
+// Use your menus or right-click / control-click and choose "Inspect" > "Console"
+console.log("Hello 🌎");
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
-      </a-entity>
-    </a-scene>
-  </body>
-</html>
+/* 
+Make the "Click me!" button move when the visitor clicks it:
+- First add the button to the page by following the steps in the TODO 🚧
+*/
+const btn = document.querySelector("button"); // Get the button from the page
+if (btn) { // Detect clicks on the button
+  btn.onclick = function () {
+    // The 'dipped' class in style.css changes the appearance on click
+    btn.classList.toggle("dipped");
+  };
+}
+
+
+// ----- GLITCH STARTER PROJECT HELPER CODE -----
+
+// Open file when the link in the preview is clicked
+let goto = (file, line) => {
+  window.parent.postMessage(
+    { type: "glitch/go-to-line", payload: { filePath: file, line: line } }, "*"
+  );
+};
+// Get the file opening button from its class name
+const filer = document.querySelectorAll(".fileopener");
+filer.forEach((f) => {
+  f.onclick = () => { goto(f.dataset.file, f.dataset.line); };
+});
