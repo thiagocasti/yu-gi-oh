@@ -4,17 +4,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js">
+    exampleTarget.addEventListener("targetFound", event => {
+	  console.log("target found");
+      
+    });
+    </script>
   </head>
   <body>
+    <!--target de las imagenes, basicamente son varios en uno*/-->
      <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/magooscuroykuriboh.mind?v=1727364264110; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
+        <!--cada modelo relacionado a su modelo glb-->
         <a-asset-item id="Kuriboh" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/kuriboh.glb?v=1727369359494"></a-asset-item>
         <a-asset-item id="MagoKitty" src="https://cdn.glitch.me/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/MagoKitty.glb?v=1727369440297"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
+          <!--aca se asigna el lugar segun la imagen -->
          <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty" animation-mixer>
       </a-entity>
