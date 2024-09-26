@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script>
+      
       const exampleTarget = document.querySelector('#example-target');
       exampleTarget.addEventListener("targetFound", event => {
       console.log("target found");
@@ -15,7 +16,7 @@
   <body>
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
-     <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/magooscuroykuriboh.mind?v=1727364264110; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+     <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/diezPersonajes.mind?v=1727373002605; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <!--cada modelo relacionado a su modelo glb-->
         <a-asset-item id="Kuriboh" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/kuriboh.glb?v=1727369359494"></a-asset-item>
@@ -25,10 +26,10 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
           <!--aca se asigna el lugar segun la imagen -->
       <a-entity id="example-target" mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty" animation-mixer>
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty"></a-gltf-model>
       </a-entity>
       <a-entity mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" animation-mixer>
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
       </a-entity>  
     </a-scene>
   </body>
