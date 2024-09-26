@@ -27,15 +27,16 @@
     </a-scene>
   </body>
   <script>
-      const exampleTarget = document.querySelector('#carta1');
-      const exampleTarget = document.querySelector('#carta2');
-      const exampleTarget = document.querySelector('#carta3');
-      const exampleTarget = document.querySelector('#carta1');
-      const exampleTarget = document.querySelector('#carta1');
-      const exampleTarget = document.querySelector('#carta1');
-      exampleTarget.addEventListener("targetFound", event => {
-      console.log('Mago Oscuro encontrado');
-      });
-      
+    <!--  const exampleTarget = document.querySelector('#carta1');
+    -->  exampleTarget.addEventListener("targetFound", event => {
+     --> console.log('Mago Oscuro encontrado');
+     --> });
+     const targets = ['carta1', 'carta2'];
+    targets.forEach((targetId, index) => {
+          const target = document.querySelector(`#${targetId}`);
+      target.addEventListener("targetFound", event => {
+              console.log(`Target ${index + 1} found: ${targetId}`);
+            });
+   
   </script>
 </html>
