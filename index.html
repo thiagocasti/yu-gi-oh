@@ -23,7 +23,31 @@
       </a-entity>
       <a-entity id="carta2" mindar-image-target="targetIndex: 1">
         <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>  
+      </a-entity>
+       <a-entity id="carta3" mindar-image-target="targetIndex: 2">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta4" mindar-image-target="targetIndex: 3">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta5" mindar-image-target="targetIndex: 4">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta6" mindar-image-target="targetIndex: 5">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta7" mindar-image-target="targetIndex: 6">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta8" mindar-image-target="targetIndex: 7">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta9" mindar-image-target="targetIndex: 8">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
+       <a-entity id="carta10" mindar-image-target="targetIndex: 9">
+        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
+      </a-entity>
     </a-scene>
   </body>
   <script>
@@ -31,12 +55,13 @@
     -->  exampleTarget.addEventListener("targetFound", event => {
      --> console.log('Mago Oscuro encontrado');
      --> });
-     const targets = ['carta1', 'carta2'];
+    <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
+     const targets = ['carta1', 'carta2','carta3','carta4','carta5','carta6','carta7','carta8','carta9'];
     targets.forEach((targetId, index) => {
           const target = document.querySelector(`#${targetId}`);
       target.addEventListener("targetFound", event => {
               console.log(`Target ${index + 1} found: ${targetId}`);
             });
-   
+   });
   </script>
 </html>
