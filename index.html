@@ -61,6 +61,13 @@
     -->  exampleTarget.addEventListener("targetFound", event => {
      --> console.log('Mago Oscuro encontrado');
      --> });
+    function cargardatacarta(string nombre)
+    {
+      fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
+      .then(response => response.json())
+      .then(data => console.log(data));
+    }
+    
     <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
      const targets =     ['carta1', 'carta2','carta3','carta4','carta5','carta6','carta7','carta8','carta9', 'carta10','carta11','carta12'];
      const nombrecarta = ['Dark Magician', 'Kuriboh','Dark Magican Girl','Time Wizard','Red-eyes B. Dragon','Blue-Eyes White Dragon','The Legendary Exodia Incarnate','Silfer the Sky Dragon','Obelisk the Tormentor', 'carta10','The Winged Dragon of Ra','carta10'];
@@ -68,7 +75,8 @@
           const target = document.querySelector(`#${targetId}`);
       target.addEventListener("targetFound", event => {
               console.log(`Target ${index + 1} found: ${targetId}`);
-        console.log(`nombrecarta ${index + 1} found: ${targetId}`);
+              console.log(`Nombre ${nombrecarta[index] }`);
+              cargardatacarta(nombrecarta[index]);
             });
    });
   </script>
