@@ -56,16 +56,17 @@
       </a-entity>
     </a-scene>+
   </body>
-  <script>
   
-    
+  <script>
+    var cementerio[];
+    var mazo=[];
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
     .then(response => response.json())
     .then(data => {
       const carta = data.data[0];
       if (carta) {
-        const filtrado = {
+        const filtrado =  {
           nombre: carta.name,
           ataque: carta.atk,
           defensa: carta.def,
@@ -74,7 +75,8 @@
         };    
         console.log(filtrado);
       }
-    }) }
+    }) 
+    }
 
      
     <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
