@@ -58,7 +58,7 @@
   </body>
   
   <script>
-   var mazo=[];
+   var mazo=[10];
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
     .then(response => response.json())
@@ -74,24 +74,67 @@
         };    
         console.log(filtrado);
         let cartanueva = true;
-        for(int i=0;i<mazo.length; i++){
-          if(filtrado.nombre===mazo[i].nombre)
-          { 
-            cartanueva=false;
+        /* for (let i = 0; i < mazo.length; i++) {
+          if (filtrado.nombre === mazo[i].nombre) {
+            cartanueva = false;
             break; 
           }
-          }
+        }
           if(cartanueva)
           { 
             mazo.push(filtrado); 
           }
-        }
+        }*/
+        
         console.log("el mazo es :" + JSON.stringify(mazo));
       }
     }) 
     };
+    /* var mazo = [];
 
-     
+function cargardatacarta(nombre) {
+  fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
+    .then(response => response.json())
+    .then(data => {
+      const carta = data.data[0];
+      if (carta) {
+        const filtrado = {
+          nombre: carta.name,
+          ataque: carta.atk,
+          defensa: carta.def,
+          nivel: carta.level,
+          descripcion: carta.desc
+        };    
+        console.log(filtrado);
+
+        let cartanueva = true; // Suponemos que es una carta nueva
+
+        // Corrige aquí: Usa let para declarar 'i'
+        for (let i = 0; i < mazo.length; i++) {
+          if (filtrado.nombre === mazo[i].nombre) {
+            cartanueva = false; // La carta ya existe en el mazo
+            break; 
+          }
+        }
+
+        // Agregar la carta al mazo si es nueva
+        if (cartanueva && mazo.length < 10) {
+          mazo.push(filtrado); 
+          console.log("Carta añadida al mazo:", filtrado);
+        } else if (!cartanueva) {
+          console.log("La carta ya está en el mazo.");
+        } else
+        
+
+        // Imprimir el estado del mazo
+        console.log("El mazo es:", JSON.stringify(mazo));
+      }
+    })
+}*/
+
+// Ejemplo de uso
+cargardatacarta("Blue-Eyes White Dragon"); // Cambia por el nombre de la carta que desees
+
     <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
      const targets =     ['carta1', 'carta2','carta3','carta4','carta5','carta6','carta7','carta8','carta9', 'carta10','carta11','carta12'];
      const nombrecarta = ['Dark Magician','Kuriboh','Dark Magician Girl','Time Wizard','Red-eyes B. Dragon','Blue-Eyes White Dragon','The Legendary Exodia Incarnate','Slifer the Sky Dragon','Obelisk the Tormentor', 'carta10','The Winged Dragon of Ra','carta10'];
