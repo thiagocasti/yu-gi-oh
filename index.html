@@ -73,8 +73,18 @@
           descripcion: carta.desc
         };    
         console.log(filtrado);
-        for(int i=0;i<mazo.lenght; i++){
-          if(filtrado.nombre!=)
+        let cartanueva = true;
+        for(int i=0;i<mazo.length; i++){
+          if(filtrado.nombre===mazo[i].nombre)
+          { 
+            cartanueva=false;
+            break; 
+          }
+          }
+          if(cartanueva)
+          { 
+            mazo.push(filtrado); 
+          }
         }
         console.log("el mazo es :" + JSON.stringify(mazo));
       }
