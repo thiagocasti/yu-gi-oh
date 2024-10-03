@@ -61,8 +61,12 @@
     {
       fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
       .then(response => response.json())
-      .then(data => console.log(data));
-      //alert(objet.data.0);
+      .then(data => console.log(data.0));
+  /*   .then(data => {
+      const cardData = data.data[0];
+      console.log("Nombre", cardData.name);
+      console.log("Descripcion", cardData.desc);
+    } */
     }
      
     <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
