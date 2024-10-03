@@ -58,8 +58,7 @@
   </body>
   
   <script>
-    var cementerio[];
-    var mazo=[];
+   var mazo=[];
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
     .then(response => response.json())
@@ -74,9 +73,10 @@
           descripcion: carta.desc
         };    
         console.log(filtrado);
+        mazo.push(carta);
       }
     }) 
-    }
+    };
 
      
     <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
