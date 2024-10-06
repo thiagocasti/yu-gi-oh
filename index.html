@@ -12,7 +12,7 @@
     <div style="position: absolute; z-index: 1000">
        <button id="ver-cartas">ver cartas</button>
     </div>
-    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white">
+    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; visibility:hidden">
        <p id="info-cartas">ver cartas</p>
     </div>
     
@@ -71,10 +71,17 @@
   <script>
     //no le den pelota estoy experimentando xd
     const startButton = document.querySelector("#ver-cartas");
+    const infoCartas = document.querySelector("#info-cartas");
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
 	  console.log("se acriva ver cartas");
-      
+    if(infoCartas.style.visibility==='hidden'){
+    infoCartas.style.visibility = 'visible';
+    }
+    else
+    {
+      infoCartas.style.visibility = 'hidden';
+    }
 	});
     
     //el primero solo es para verificar que no se repita
