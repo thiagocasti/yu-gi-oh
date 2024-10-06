@@ -12,8 +12,8 @@
     <div style="position: absolute; z-index: 1000">
        <button id="ver-cartas">ver cartas</button>
     </div>
-    <div style="position: absolute; z-index: 1000">
-       <p id="si">ver cartas</p>
+    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white">
+       <p id="info-cartas">ver cartas</p>
     </div>
     
     <!--target de las imagenes, basicamente son varios en uno*/-->
@@ -73,7 +73,7 @@
     const startButton = document.querySelector("#ver-cartas");
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
-	  console.log("start");
+	  console.log("se acriva ver cartas");
       
 	});
     
@@ -123,47 +123,7 @@
       console.error('Error al cargar la carta:', error);
       });
     } 
-    /* var mazo = [];
 
-function cargardatacarta(nombre) {
-  fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
-    .then(response => response.json())
-    .then(data => {
-      const carta = data.data[0];
-      if (carta) {
-        const filtrado = {
-          nombre: carta.name,
-          ataque: carta.atk,
-          defensa: carta.def,
-          nivel: carta.level,
-          descripcion: carta.desc
-        };    
-        console.log(filtrado);
-
-        let cartanueva = true; // Suponemos que es una carta nueva
-
-        // Corrige aquí: Usa let para declarar 'i'
-        for (let i = 0; i < mazo.length; i++) {
-          if (filtrado.nombre === mazo[i].nombre) {
-            cartanueva = false; // La carta ya existe en el mazo
-            break; 
-          }
-        }
-
-        // Agregar la carta al mazo si es nueva
-        if (cartanueva && mazo.length < 10) {
-          mazo.push(filtrado); 
-          console.log("Carta añadida al mazo:", filtrado);
-        } else if (!cartanueva) {
-          console.log("La carta ya está en el mazo.");
-        } else
-        
-
-        // Imprimir el estado del mazo
-        console.log("El mazo es:", JSON.stringify(mazo));
-      }
-    })
-}*/
 
 // Ejemplo de uso
 cargardatacarta("Blue-Eyes White Dragon"); // Cambia por el nombre de la carta que desees
