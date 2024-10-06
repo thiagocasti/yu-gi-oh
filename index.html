@@ -70,10 +70,21 @@
   </body>
   
   <script>
+    //dejar mazo rriba sino da errores
+       var mazo=[{ nombre: "Blue-Eyes White Dragon",
+              ataque: 3000,
+              defensa: 2500,
+              nivel: 8,
+              descripcion: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale." 
+             }
+             ];
+    
     //no le den pelota estoy experimentando xd
     const startButton = document.querySelector("#ver-cartas");
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
+    
+    var carI=0;
     
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
@@ -90,22 +101,26 @@
 
     }
 	});
-    
+    //va a usarse carI como indice de donde se ve la info de las cartas
     verSig.addEventListener('click', () => {
+      
 	  console.log("siguiente carta");
-      //muestra y oculta data de carta,
-     
+      
+    if(carI>mazo.lenght)
+    {
+      carI=0
+    }
+      else 
+      {
+        carI+=1;
+      }
+      
+    infoCartas.innerText= `Nombre ${mazo[carI].nombre} \n Ataque ${mazo[carI].ataque} \n Defensa ${mazo[carI].defensa}`;
+    
 	});
     
     //el primero solo es para verificar que no se repita
     //funaciona (de milagro)
-   var mazo=[{ nombre: "Blue-Eyes White Dragon",
-              ataque: 3000,
-              defensa: 2500,
-              nivel: 8,
-              descripcion: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale." 
-             }
-             ];
     
     infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
     
