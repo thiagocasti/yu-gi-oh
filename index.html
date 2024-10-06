@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
+    <button id="example-start-button">Start</button>
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
      <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/diezPersonajes.mind?v=1727373002605; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
@@ -58,6 +59,9 @@
   </body>
   
   <script>
+    //no le den pelota estoy experimentando xd
+    const startButton = document.querySelector("#example-start-button");
+    
     //el primero solo es para verificar que no se repita
     //funaciona (de milagro)
    var mazo=[{ nombre: "Blue-Eyes White Dragon",
@@ -98,6 +102,7 @@
           }
         }
         console.log("El mazo es:", JSON.stringify(mazo));
+    
       })
       .catch(error => {
       console.error('Error al cargar la carta:', error);
