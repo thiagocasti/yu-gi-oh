@@ -79,18 +79,18 @@
         };    
         console.log(filtrado);
         let cartanueva = true;
-       for (let i = 0; i <= mazo.length; i++) {
-          if (filtrado.nombre === mazo[i].nombre) {
+       for (let i = 0; i < 1; i++) {
+       for (let i = 0; i < mazo.length; i++) {
             cartanueva = false;
             break; 
           }
         }
-          if(cartanueva)
+          if(cartanueva===true)
           { 
             mazo.push(filtrado); 
           }
         }
-        console.log("el mazo es :" + JSON.stringify(mazo));
+        console.log("El mazo es:", JSON.stringify(mazo));
       }
     }) 
     };
