@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <button id="example-start-button">Start</button>
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
      <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/diezPersonajes.mind?v=1727373002605; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
@@ -16,8 +15,12 @@
         <a-asset-item id="Kuriboh" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/kuriboh.glb?v=1727369359494"></a-asset-item>
         <a-asset-item id="MagoKitty" src="https://cdn.glitch.me/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/MagoKitty.glb?v=1727369440297"></a-asset-item>
       </a-assets>
-
+      
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+       
+       <!-- boton de experimento -->
+       <button id="example-start-button">Start</button>
+       
           <!--aca se asigna el lugar segun la imagen -->
       <a-entity id="carta1" mindar-image-target="targetIndex: 0">
         <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty"></a-gltf-model>
@@ -61,6 +64,11 @@
   <script>
     //no le den pelota estoy experimentando xd
     const startButton = document.querySelector("#example-start-button");
+    
+    startButton.addEventListener('click', () => {
+	  console.log("start");
+      
+	});
     
     //el primero solo es para verificar que no se repita
     //funaciona (de milagro)
