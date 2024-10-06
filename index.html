@@ -58,7 +58,12 @@
   </body>
   
   <script>
-   var mazo=[];
+   var mazo=[{ nombre: "Blue-Eyes White Dragon",
+              ataque: 3000,
+              defensa: 2500,
+              nivel: 8,
+              descripcion: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale." }
+             ];
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
     .then(response => response.json())
@@ -74,7 +79,7 @@
         };    
         console.log(filtrado);
         let cartanueva = true;
-        for (let i = 0; i <= mazo.length; i++) {
+       for (let i = 0; i <= mazo.length; i++) {
           if (filtrado.nombre === mazo[i].nombre) {
             cartanueva = false;
             break; 
@@ -85,7 +90,6 @@
             mazo.push(filtrado); 
           }
         }
-        
         console.log("el mazo es :" + JSON.stringify(mazo));
       }
     }) 
