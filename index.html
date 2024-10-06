@@ -58,7 +58,7 @@
   </body>
   
   <script>
-   var mazo[10];
+   var mazo=[];
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
     .then(response => response.json())
@@ -74,7 +74,7 @@
         };    
         console.log(filtrado);
         let cartanueva = true;
-        /* for (let i = 0; i < mazo.length; i++) {
+        for (let i = 0; i <= mazo.length; i++) {
           if (filtrado.nombre === mazo[i].nombre) {
             cartanueva = false;
             break; 
@@ -84,7 +84,7 @@
           { 
             mazo.push(filtrado); 
           }
-        }*/
+        }
         
         console.log("el mazo es :" + JSON.stringify(mazo));
       }
