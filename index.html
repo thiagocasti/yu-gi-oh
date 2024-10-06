@@ -10,10 +10,10 @@
     
     <!-- boton de experimento -->
     <div style="position: absolute; z-index: 1000">
-       <button id="ver-cartas"></button>
+       <button id="ver-cartas">Ver cartas</button>
     </div>
     <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; visibility:hidden">
-       <p id="info-cartas">ver cartas</p>
+       <p id="info-cartas"></p>
     </div>
     
     <!--target de las imagenes, basicamente son varios en uno*/-->
@@ -95,7 +95,7 @@
              }
              ];
     
-    infocarta.innerText= ´${}´
+    //infoCarta.innerText= `nombre ${mazo[0].nombre},nombre ${mazo[0].ataque},nombre ${mazo[0].defensa}`;
     
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
