@@ -13,6 +13,7 @@
        <button id="ver-cartas">Ver cartas</button>
     </div>
     <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; visibility:hidden">
+      <button id="ver-sig">Siguiente Carta</button>
        <p id="info-cartas"></p>
     </div>
     
@@ -72,17 +73,28 @@
     //no le den pelota estoy experimentando xd
     const startButton = document.querySelector("#ver-cartas");
     const infoCartas = document.querySelector("#info-cartas");
+    const verSig = document.querySelector("#ver-sig");
+    
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
 	  console.log("se acriva ver cartas");
       //muestra y oculta data de carta,
     if(infoCartas.style.visibility==='hidden'){
     infoCartas.style.visibility = 'visible';
+    verSig.style.visibility = 'visible';
     }
     else
     {
       infoCartas.style.visibility = 'hidden';
+      verSig.style.visibility = 'hidden';
+
     }
+	});
+    
+    verSig.addEventListener('click', () => {
+	  console.log("siguiente carta");
+      //muestra y oculta data de carta,
+     
 	});
     
     //el primero solo es para verificar que no se repita
@@ -95,7 +107,7 @@
              }
              ];
     
-    //infoCarta.innerText= `nombre ${mazo[0].nombre},nombre ${mazo[0].ataque},nombre ${mazo[0].defensa}`;
+    infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
     
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
