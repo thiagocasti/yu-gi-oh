@@ -84,7 +84,7 @@
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
     
-    var carI=0;
+    let carI=0;
     
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
@@ -102,18 +102,16 @@
     }
 	});
     //va a usarse carI como indice de donde se ve la info de las cartas
+  infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
+    // aca se actualiza y se ve la siguiente carta del mazo
     verSig.addEventListener('click', () => {
       
 	  console.log("siguiente carta");
-      
-    if(carI>mazo.lenght)
+    carI++;
+    if(carI>=mazo.length)
     {
       carI=0
     }
-      else 
-      {
-        carI+=1;
-      }
       
     infoCartas.innerText= `Nombre ${mazo[carI].nombre} \n Ataque ${mazo[carI].ataque} \n Defensa ${mazo[carI].defensa}`;
     
@@ -122,7 +120,6 @@
     //el primero solo es para verificar que no se repita
     //funaciona (de milagro)
     
-    infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
     
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
