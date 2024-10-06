@@ -10,7 +10,7 @@
     
     <!-- boton de experimento -->
     <div style="position: absolute; z-index: 1000">
-       <button id="ver-cartas">ver cartas</button>
+       <button id="ver-cartas"></button>
     </div>
     <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; visibility:hidden">
        <p id="info-cartas">ver cartas</p>
@@ -75,6 +75,7 @@
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
 	  console.log("se acriva ver cartas");
+      //muestra y oculta data de carta,
     if(infoCartas.style.visibility==='hidden'){
     infoCartas.style.visibility = 'visible';
     }
@@ -93,6 +94,8 @@
               descripcion: "This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale." 
              }
              ];
+    
+    infocarta.innerText= ´${}´
     
     function cargardatacarta(nombre) {
   fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
