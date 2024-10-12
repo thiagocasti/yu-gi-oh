@@ -85,7 +85,7 @@
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
     
-    let carI=1;
+    let carI=0;
     
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
@@ -115,12 +115,10 @@
     carI++;
     if(carI>=mazo.length)
     {
-      carI=1
+      carI=0
     }
       //actualiza la info
-    if(mazo[carI].nombre!=""){
     infoCartas.innerText= `Nombre ${mazo[carI].nombre} \n Ataque ${mazo[carI].ataque} \n Defensa ${mazo[carI].defensa}`;
-    }
     
 	});
     
