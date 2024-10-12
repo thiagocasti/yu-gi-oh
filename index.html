@@ -71,7 +71,12 @@
   
   <script>
     //dejar mazo rriba sino da errores
-       var mazo=[
+       var mazo=[{ nombre: "",
+              ataque: 0,
+              defensa: 0,
+              nivel: 0,
+              descripcion: "" 
+             }
              ];
     
     //constantes de id respextivos a botones de id
@@ -80,7 +85,7 @@
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
     
-    let carI=0;
+    let carI=1;
     
     // cuando apretas start pasa lo siguiente:
     startButton.addEventListener('click', () => {
@@ -100,7 +105,9 @@
     }
 	});
     //va a usarse carI como indice de donde se ve la info de las cartas
+  if(mazo[0].nombre!=""){ 
   infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
+  }
     // aca se actualiza y se ve la siguiente carta del mazo
     verSig.addEventListener('click', () => {
       
@@ -108,10 +115,12 @@
     carI++;
     if(carI>=mazo.length)
     {
-      carI=0
+      carI=1
     }
       //actualiza la info
+    if(mazo[carI].nombre!=""){
     infoCartas.innerText= `Nombre ${mazo[carI].nombre} \n Ataque ${mazo[carI].ataque} \n Defensa ${mazo[carI].defensa}`;
+    }
     
 	});
     
