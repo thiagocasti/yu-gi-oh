@@ -12,7 +12,7 @@
     <div style="position: absolute; z-index: 1000">
        <button id="ver-cartas">Ver cartas</button>
     </div>
-    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white;background-color: black; visibility:hidden">
+    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white;background-color: black; visibility:hidden" id="info-div">
       <button id="ver-sig">Siguiente Carta</button>
        <p id="info-cartas"></p>
     </div>
@@ -80,6 +80,7 @@
              ];
     
     //constantes de id respextivos a botones de id
+    const infoDiv=document.querySelector("#info-div");
     const startButton = document.querySelector("#ver-cartas");
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
@@ -91,11 +92,13 @@
 	  console.log("se acriva ver cartas");
       //muestra y oculta data de carta,
     if(infoCartas.style.visibility==='hidden'){
+    infoDiv.style.visibility = 'visible';
     infoCartas.style.visibility = 'visible';
     verSig.style.visibility = 'visible';
     }
     else
     {
+      infoDiv.style.visibility = 'hidden';
       infoCartas.style.visibility = 'hidden';
       verSig.style.visibility = 'hidden';
 
