@@ -11,15 +11,14 @@
   <!-- Botones de experimento -->
   <div style="position: absolute; z-index: 1000">
   <button id="ver-cartas">Ver cartas</button>
-  <button id="elegir-cartas">Elegir</button>
-  <button id="atacar-cartas">Atacar</button>
   </div>
 
-    <div style="position: absolute; z-index: 1000; bottom: 50%; color: white;background-color: black; visibility:hidden" id="info-div">
-      <button id="ver-sig">Siguiente Carta</button>
-       <p id="info-cartas"></p>
-    </div>
-    
+  <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; background-color: black; visibility:hidden" id="info-div">
+  <button id="ver-sig">Siguiente Carta</button>
+  <button id="atacar-btn">Atacar a</button>
+  <p id="info-cartas"></p>
+  </div>
+
     
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
@@ -109,26 +108,6 @@
     }
 	});
     
-    //
-    
-    // Referencias a los botones recién agregados
-const elegirButton = document.querySelector("#elegir-cartas");
-const atacarButton = document.querySelector("#atacar-cartas");
-
-// Evento para el botón "Elegir"
-elegirButton.addEventListener('click', () => {
-  console.log("Carta elegida");
-  // Aquí puedes agregar la lógica para seleccionar una carta
-});
-
-// Evento para el botón "Atacar"
-atacarButton.addEventListener('click', () => {
-  console.log("Atacar con la carta seleccionada");
-  // Aquí puedes agregar la lógica para realizar un ataque con la carta seleccionada
-});
-
-    //
-    
     //va a usarse carI como indice de donde se ve la info de las cartas
   if(mazo[0].nombre!=""){ 
   infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
@@ -203,5 +182,6 @@ atacarButton.addEventListener('click', () => {
               cargardatacarta(nombrecarta[index]);
             });
    });
+    
   </script>
 </html>
