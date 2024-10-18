@@ -71,11 +71,57 @@
 
   </div>
 
-  <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; background-color: black; visibility:hidden" id="info-div">
-  <button id="ver-sig">Siguiente Carta</button>
-  <button id="atacar-btn">Atacar a</button>
+<div style="position: absolute; z-index: 1000; bottom: 50%; left: 50%; transform: translateX(-50%); color: white; background-color: black; visibility:hidden" id="info-div">
+  <button id="ver-sig"><span>Siguiente Carta</span></button>
+  <button id="atacar-btn"><span>Atacar a</span></button>
   <p id="info-cartas"></p>
-  </div>
+</div>
+
+<style>
+  button {
+    border: 0;
+    background-color: transparent;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: default;
+    transition: .3s;
+  }
+
+  button span {
+    background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: .3s;
+    animation: colorChange 3s infinite alternate;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  @keyframes colorChange {
+    0% {
+      background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
+    }
+    100% {
+      background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
+    }
+  }
+
+  /* Estilos más pequeños para los botones de #info-div */
+  #info-div button {
+    font-size: 14px; /* Tamaño más pequeño */
+    padding: 8px 12px;
+  }
+
+  #info-div button span {
+    padding: 8px 12px; /* Ajuste del padding para que se vea más pequeño */
+  }
+</style>
+
     
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
