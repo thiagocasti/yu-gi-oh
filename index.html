@@ -17,78 +17,20 @@
 <body>
 
   <script>
-    // Añadir funcionalidad para mostrar el ataque de la carta
     const boton = document.getElementById("miBoton");
     const ataqueTexto = document.getElementById("ataqueBestia");
 
     boton.addEventListener("click", () => {
-      // Cambiar el texto del ataque, simulando una acción Yu-Gi-Oh!
       ataqueTexto.textContent = "Ataque: 3000 - ¡Dragón Blanco de Ojos Azules!";
     });
   </script>
 
 </body>
- <!--
-  <!-- Aquí iría el resto de tu código JavaScript 
-  <script>
-    // Tu código JavaScript...
-  </script>
-</body>
-</html>
 
-  </head>-->
   <body>
     
-  <!-- Botones de experimento -->
   <div style="position: absolute; z-index: 1000">
 <button id="ver-cartas"><span>Ver cartas </span></button>
-<style>
-  button {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 0;
-    background-color: transparent; /* Fondo del botón transparente */
-    border-radius: 8px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    padding: 4px;
-    cursor: default;
-    transition: .3s;
-  }
-
-  button span {
-    background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500); /* Animación del gradiente dentro del span */
-    padding: 16px 24px;
-    border-radius: 6px;
-    transition: .3s;
-    animation: colorChange 3s infinite alternate; /* Animación de colores en el texto */
-  }
-
-  button:active {
-    transform: scale(0.9);
-  }
-
-  @keyframes colorChange {
-    0% {
-      background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
-    }
-    100% {
-      background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
-    }
-  }
-</style>
-
-
-<div style="position: absolute; z-index: 1000; bottom: 25%; left: 50%; transform: translateX(-50%); color: white; background-color: black; visibility:hidden" id="info-div">
-  <button id="ver-sig">Siguiente Carta</button>
-  <button id="atacar-btn">Atacar a</button>
-  <p id="info-cartas"></p>
-</div>
-
-<button id="ver-cartas"><span>Ver cartas</span></button>
 
 <style>
   button {
@@ -107,20 +49,8 @@
     background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
     padding: 16px 24px;
     border-radius: 6px;
-    animation: colorChange 3s infinite alternate;
     transition: .3s;
-  }
-
-  #info-div button {
-    background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
-    border-radius: 8px;
-    color: #fff;
-    font-size: 18px;
-    padding: 8px 16px;
-    margin: 5px;
-    cursor: default;
     animation: colorChange 3s infinite alternate;
-    transition: .3s;
   }
 
   button:active {
@@ -135,14 +65,17 @@
       background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
     }
   }
-
-  #ver-cartas {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 </style>
+
+
+
+  </div>
+
+  <div style="position: absolute; z-index: 1000; bottom: 50%; color: white; background-color: black; visibility:hidden" id="info-div">
+  <button id="ver-sig">Siguiente Carta</button>
+  <button id="atacar-btn">Atacar a</button>
+  <p id="info-cartas"></p>
+  </div>
     
     <!--target de las imagenes, basicamente son varios en uno*/-->
     <!--mindar-image es el que necesita el trigger-->
