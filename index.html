@@ -1,289 +1,163 @@
-
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yu-Gi-Oh App</title>
-        </head>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <style>
+    button {
+      border: 0;
+      background-color: transparent;
+      border-radius: 8px;
+      color: #fff;
+      display: flex;
+      font-size: 18px;
+      padding: 4px;
+      cursor: pointer;
+      transition: .3s;
+    }
 
-<body> 
-<body>
-
-  <script>
-    const boton = document.getElementById("miBoton");
-    const ataqueTexto = document.getElementById("ataqueBestia");
-
-    boton.addEventListener("click", () => {
-      ataqueTexto.textContent = "Ataque: 3000 - ¡Dragón Blanco de Ojos Azules!";
-    });
-  </script>
-
-</body>
-
-  <body>
-    
-  <div style="position: absolute; z-index: 1000">
-<button id="ver-cartas"><span>Ver cartas </span></button>
-
-<style>
-  button {
-    border: 0;
-    background-color: transparent;
-    border-radius: 8px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    padding: 4px;
-    cursor: default;
-    transition: .3s;
-  }
-
-  button span {
-    background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
-    padding: 16px 24px;
-    border-radius: 6px;
-    transition: .3s;
-    animation: colorChange 3s infinite alternate;
-  }
-
-  button:active {
-    transform: scale(0.9);
-  }
-
-  @keyframes colorChange {
-    0% {
+    button span {
       background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
+      padding: 16px 24px;
+      border-radius: 6px;
+      transition: .3s;
+      animation: colorChange 3s infinite alternate;
     }
-    100% {
-      background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
+
+    button:active {
+      transform: scale(0.9);
     }
-  }
-</style>
 
+    @keyframes colorChange {
+      0% {
+        background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
+      }
+      100% {
+        background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
+      }
+    }
 
+    #info-div button {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
 
+    #info-div button span {
+      padding: 8px 12px;
+    }
+
+    #info-div {
+      position: absolute;
+      z-index: 1000;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, -230px);
+      color: white;
+      background-color: black;
+      visibility: hidden;
+    }
+
+    #info-div p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: absolute; z-index: 1000">
+    <button id="ver-cartas"><span>Ver cartas</span></button>
   </div>
 
-<div style="position: absolute; z-index: 1000; bottom: 50%; left: 50%; transform: translate(-0%, -230px); color: white; background-color: black; visibility:hidden" id="info-div">
-  <button id="ver-sig"><span>Siguiente Carta</span></button>
-  <button id="atacar-btn"><span>Atacar a</span></button>
-  <p id="info-cartas"></p>
-</div>
+  <div id="info-div">
+    <button id="ver-sig"><span>Siguiente Carta</span></button>
+    <button id="atacar-btn"><span>Atacar a</span></button>
+    <p id="info-cartas"></p>
+  </div>
 
-<style>
-  button {
-    border: 0;
-    background-color: transparent;
-    border-radius: 8px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    padding: 4px;
-    cursor: default;
-    transition: .3s;
-  }
+  <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/diezPersonajes.mind?v=1727373002605; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-assets>
+      <a-asset-item id="Kuriboh" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/kuriboh.glb?v=1727369359494"></a-asset-item>
+      <a-asset-item id="MagoKitty" src="https://cdn.glitch.me/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/MagoKitty.glb?v=1727369440297"></a-asset-item>
+    </a-assets>
 
-  button span {
-    background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
-    padding: 16px 24px;
-    border-radius: 6px;
-    transition: .3s;
-    animation: colorChange 3s infinite alternate;
-  }
-
-  button:active {
-    transform: scale(0.9);
-  }
-
-  @keyframes colorChange {
-    0% {
-      background-image: linear-gradient(150deg, #EABE3F, #EE82EE, #FFA500);
-    }
-    100% {
-      background-image: linear-gradient(150deg, #EE82EE, #FFA500, #EABE3F);
-    }
-  }
-
-  /* Estilos más pequeños para los botones de #info-div */
-  #info-div button {
-    font-size: 14px; /* Tamaño más pequeño */
-    padding: 8px 12px;
-  }
-
-  #info-div button span {
-    padding: 8px 12px; /* Ajuste del padding para que se vea más pequeño */
-  }
-</style>
-
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     
-    <!--target de las imagenes, basicamente son varios en uno*/-->
-    <!--mindar-image es el que necesita el trigger-->
-     <a-scene mindar-image="imageTargetSrc: https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/diezPersonajes.mind?v=1727373002605; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-        <!--cada modelo relacionado a su modelo glb-->
-        <a-asset-item id="Kuriboh" src="https://cdn.glitch.global/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/kuriboh.glb?v=1727369359494"></a-asset-item>
-        <a-asset-item id="MagoKitty" src="https://cdn.glitch.me/41ad62dc-7ae0-4a82-a884-bffc7fcd3d3c/MagoKitty.glb?v=1727369440297"></a-asset-item>
-      </a-assets>
-      
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-       
-          <!--aca se asigna el lugar segun la imagen -->
-      <a-entity id="carta1" mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty"></a-gltf-model>
-      </a-entity>
-      <a-entity id="carta2" mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta3" mindar-image-target="targetIndex: 2">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta4" mindar-image-target="targetIndex: 3">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta5" mindar-image-target="targetIndex: 4">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta6" mindar-image-target="targetIndex: 5">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta7" mindar-image-target="targetIndex: 6">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta8" mindar-image-target="targetIndex: 7">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta9" mindar-image-target="targetIndex: 8">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta11" mindar-image-target="targetIndex: 9">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta10" mindar-image-target="targetIndex: 10">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-       <a-entity id="carta12" mindar-image-target="targetIndex: 12">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh" ></a-gltf-model>
-      </a-entity>
-    </a-scene>
-    
-  </body>
-  
+    <a-entity id="carta1" mindar-image-target="targetIndex: 0">
+      <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty"></a-gltf-model>
+    </a-entity>
+    <a-entity id="carta2" mindar-image-target="targetIndex: 1">
+      <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh"></a-gltf-model>
+    </a-entity>
+    <!-- Agrega más entidades aquí según sea necesario -->
+  </a-scene>
+
   <script>
-    //dejar mazo rriba sino da errores
-       var mazo=[{ nombre: "",
-              ataque: 0,
-              defensa: 0,
-              nivel: 0,
-              descripcion: "" 
-             }
-             ];
-    
-    //constantes de id respextivos a botones de id
-    const infoDiv=document.querySelector("#info-div");
+    // Conectar al servidor WebSocket
+    const socket = new WebSocket('ws://localhost:8080');
+
+    const infoDiv = document.querySelector("#info-div");
     const startButton = document.querySelector("#ver-cartas");
     const infoCartas = document.querySelector("#info-cartas");
     const verSig = document.querySelector("#ver-sig");
-    
-    let carI=0;
-    
-    // cuando apretas start pasa lo siguiente:
+
+    // Ejemplo de cartas
+    var mazo = [
+      { nombre: "Dragón Blanco de Ojos Azules", ataque: 3000, defensa: 2500, nivel: 8, descripcion: "Un dragón legendario." },
+      { nombre: "Kuriboh", ataque: 300, defensa: 200, nivel: 1, descripcion: "Un pequeño monstruo que puede salvarte." }
+      // Agrega más cartas aquí
+    ];
+
+    let carI = 0;
+
+    // Evento que se ejecuta cuando se abre la conexión
+    socket.addEventListener('open', (event) => {
+      console.log('Conexión WebSocket abierta');
+    });
+
+    // Evento que se ejecuta cuando se recibe un mensaje del servidor
+    socket.addEventListener('message', (event) => {
+      console.log('Mensaje del servidor: ', event.data);
+      // Aquí puedes manejar el mensaje recibido del servidor
+      // Por ejemplo, podrías agregar lógica para mostrar la carta de otro usuario
+    });
+
     startButton.addEventListener('click', () => {
-	  console.log("se acriva ver cartas");
-      //muestra y oculta data de carta,
-    if(infoCartas.style.visibility==='hidden'){
-    infoDiv.style.visibility = 'visible';
-    infoCartas.style.visibility = 'visible';
-    verSig.style.visibility = 'visible';
-    }
-    else
-    {
-      infoDiv.style.visibility = 'hidden';
-      infoCartas.style.visibility = 'hidden';
-      verSig.style.visibility = 'hidden';
+      console.log("se activa ver cartas");
+      if (infoCartas.style.visibility === 'hidden') {
+        infoDiv.style.visibility = 'visible';
+        infoCartas.style.visibility = 'visible';
+        verSig.style.visibility = 'visible';
+        infoCartas.innerText = `Nombre: ${mazo[carI].nombre}\nAtaque: ${mazo[carI].ataque}\nDefensa: ${mazo[carI].defensa}`;
+      } else {
+        infoDiv.style.visibility = 'hidden';
+        infoCartas.style.visibility = 'hidden';
+        verSig.style.visibility = 'hidden';
+      }
+    });
 
-    }
-	});
-    
-    //va a usarse carI como indice de donde se ve la info de las cartas
-  if(mazo[0].nombre!=""){ 
-  infoCartas.innerText= `Nombre ${mazo[0].nombre} \n Ataque ${mazo[0].ataque} \n Defensa ${mazo[0].defensa}`;
-  }
-    // aca se actualiza y se ve la siguiente carta del mazo
     verSig.addEventListener('click', () => {
+      console.log("siguiente carta");
+      carI++;
+      if (carI >= mazo.length) {
+        carI = 0;
+      }
+      infoCartas.innerText = `Nombre: ${mazo[carI].nombre}\nAtaque: ${mazo[carI].ataque}\nDefensa: ${mazo[carI].defensa}`;
       
-	  console.log("siguiente carta");
-    carI++;
-    if(carI>=mazo.length)
-    {
-      carI=0
-    }
-      //actualiza la info
-    infoCartas.innerText= `Nombre ${mazo[carI].nombre} \n Ataque ${mazo[carI].ataque} \n Defensa ${mazo[carI].defensa}`;
-    
-	});
-    
-    //el primero solo es para verificar que no se repita
-    //funaciona (de milagro)
-    
-    
-    function cargardatacarta(nombre) {
-  fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + nombre)
-    .then(response => response.json())
-    .then(data => {
-      const carta = data.data[0];
-      if (carta) {
-        const filtrado =  {
-          nombre: carta.name,
-          ataque: carta.atk,
-          defensa: carta.def,
-          nivel: carta.level,
-          descripcion: carta.desc
-        };    
-        
-        console.log(filtrado);
-        
-        let cartanueva = true;
-        
-       for (let i = 0; i < mazo.length; i++) {
-         if (filtrado.nombre === mazo[i].nombre) {
-            cartanueva = false;
-            break; 
-          }
-         }//entendes que este corchete de mierda me cago el codigo hace medio año ?
-          if(cartanueva===true)
-          { 
-            mazo.push(filtrado); 
-          }
-        }
-        console.log("El mazo es:", JSON.stringify(mazo));
-    
-      })
-      .catch(error => {
-      console.error('Error al cargar la carta:', error);
-      });
-    } 
+      // Enviar carta al servidor cuando cambias a la siguiente carta
+      socket.send(JSON.stringify({ action: 'showCard', card: mazo[carI] }));
+    });
 
-
-// Ejemplo de uso
-//cargardatacarta("Blue-Eyes White Dragon"); // Cambia por el nombre de la carta que desees
-
-    <!-- lista de cartas que vamos a poner despues,sino poner el mismo modelo misma imagen
-     const targets =     ['carta1', 'carta2','carta3','carta4','carta5','carta6','carta7','carta8','carta9', 'carta10','carta11','carta12'];
-     const nombrecarta = ['Dark Magician','Kuriboh','Dark Magician Girl','Time Wizard','Red-eyes B. Dragon','Blue-Eyes White Dragon','The Legendary Exodia Incarnate','Slifer the Sky Dragon','Obelisk the Tormentor', 'carta10','The Winged Dragon of Ra','carta10'];
-    targets.forEach((targetId, index) => {
-          const target = document.querySelector(`#${targetId}`);
-      target.addEventListener("targetFound", event => {
-              console.log(`Target ${index + 1} found: ${targetId}`);
-              console.log(`Nombre ${nombrecarta[index] }`);
-              cargardatacarta(nombrecarta[index]);
-            });
-   });
+    document.getElementById("atacar-btn").addEventListener("click", () => {
+      const ataqueTexto = document.getElementById("ataqueBestia");
+      ataqueTexto.textContent = `Ataque: ${mazo[carI].ataque} - ${mazo[carI].nombre}`;
+      
+      // Enviar ataque al servidor
+      socket.send(`Atacar con: ${mazo[carI].nombre}, Ataque: ${mazo[carI].ataque}`);
+    });
   </script>
+</body>
 </html>
