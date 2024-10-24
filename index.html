@@ -75,6 +75,7 @@
   <div id="info-div">
     <button id="ver-sig"><span>Siguiente Carta</span></button>
     <button id="atacar-btn"><span>Atacar a</span></button>
+    <button id="ocultar-btn"><span>Ocultar carta</span></button>
     <p id="info-cartas"></p>
   </div>
 
@@ -86,12 +87,35 @@
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
     
-    <a-entity id="carta1" mindar-image-target="targetIndex: 0">
+    <a-entity id="carta1" mindar-image-target="targetIndex: 0" visible="false">
       <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.05 0.05 0.05" src="#MagoKitty"></a-gltf-model>
     </a-entity>
-    <a-entity id="carta2" mindar-image-target="targetIndex: 1">
+    <a-entity id="carta2" mindar-image-target="targetIndex: 1" visible="false">
       <a-gltf-model rotation="0 0 0" position="0 -0.25 0" scale="0.05 0.05 0.05" src="#Kuriboh"></a-gltf-model>
     </a-entity>
+
+    <script>
+      document.querySelectorAll('a-entity[mindar-image-target]').forEach((carta) => {
+  carta.addEventListener('mindar-image-target-found', () => {
+    carta.setAttribute('visible', 'true'); // Muestra la carta cuando se encuentra
+      });
+
+  carta.addEventListener('mindar-image-target-lost', () => {
+    // No ocultar la carta al perder el objetivo
+      });
+    });
+    const ocultarBtn = document.querySelector("#ocultar-btn");
+
+  ocultarBtn.addEventListener("click", () => {
+  const carta1 = document.getElementById("carta1");
+  const carta2 = document.getElementById("carta2");
+  
+  carta1.setAttribute("visible", "false");
+  carta2.setAttribute("visible", "false");
+  });
+
+
+    </script>
     <!-- Agrega más entidades aquí según sea necesario -->
   </a-scene>
 
@@ -106,8 +130,7 @@
 
     // Ejemplo de cartas
     var mazo = [
-      { nombre: "Dragón Blanco de Ojos Azules", ataque: 3000, defensa: 2500, nivel: 8, descripcion: "Un dragón legendario." },
-      { nombre: "Kuriboh", ataque: 300, defensa: 200, nivel: 1, descripcion: "Un pequeño monstruo que puede salvarte." }
+      { nombre: "Dragón Blanco de Ojos Azules", ataque: 3000, defensa: 2500, nivel: 8, descripcion: "Un dragón legendario." }
       // Agrega más cartas aquí
     ];
 
